@@ -12,21 +12,54 @@ This document outlines the core and extended scalar types. All of the scalar typ
 
 An implementor should choose the most natural idiomatic mapping from a given scalar type to the language type. In cases where this mapping is not possible, custom data types shoulo be considered for the mapping. 
 
+Escaping of values *DOES NOT* happen at the scalar type level. The scalar type is merely a mapping from whatever value the scalar may have in a programming language to a common S.IM.PL representation. Escaping of these common values happens at the format level.  
 Type Listings 
 =====
 Core Types
 ====
-
+* Integer type
+* Short type
+* Double type
+* Float type
+* String Type
+* Char Type
+* Byte type
+ 
 
 
 Extended Types
 ====
+* ParsedURL type
+* File type
+* Image type
+* Color type
 
 
 Type Specifications
 =====
 Core Types
 ====
-
+* Integer type
+[TODO]
+* Short type
+[TODO]
+* Double type
+[TODO]
+* Float type
+[TODO]
+* String Type
+[TODO]
+* Char Type
+[TODO]
+* Byte type
+[TODO]
 Extended Types 
 ==== 
+* ParsedURL type
+[TODO]
+* File type
+[TODO]
+* Image type
+[TODO]
+* Color type
+[TODO]
