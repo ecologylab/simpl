@@ -21,6 +21,9 @@ Simpl has four major functions, which present the core of the architecutre of th
 3. Translation
 4. Invocation
 
+
+Description
+===
 Description refers to the way that different types are "described" and understood within the context of the S.IM.PL type system. Description includes making a mapping between certain scalar types in a given language to their correlates within the S.IM.PL type system. (For example, an int in C# will get mapped to a IntegerType... both int and Integer in Java will also get mapped to the IntegerType.) Descriptions function at the core of S.IM.PL; all of the core functionalities of the system are derived from haivng some sort of undersatnding of the types that we use. Descriptions naturally drive serialization and deserializatoin, they provide the basis for translation of representations between lnguages, and they provide the information nescessary to perform method invocatoins.
 
 In general, we focus on a few different types of descrpitions to cover all of the different types that S.IM.PL supports. S.IM.PL descrpitions include:
@@ -31,4 +34,18 @@ In general, we focus on a few different types of descrpitions to cover all of th
 * MethodDescriptors - Description of a method of a given class; used for S.IM.PL invocation
 * MetaInformationDescriptors - Description of an annotation / additional information added to a given class.
 
+Serialization and Deserialization  (De/Serialization) 
+===
 
+Serialization and Deserialization are processes by which in-memory representations of a class are saved in some other format on disk. In general, SIMPL aims to robustly support a multitude of different text and binary dataformats. (At the moment: Binary support has been cut because we currently have not had usecases for binary data; this support will return after some of our major restructurin efforts are done) 
+
+All serialization and deserialization done within SIMPL should robustly support graphs and references within data structures; this mapping to string formats is accomplished through SIMPL:ID's and SIMPL:REF's. ID's identify a given instance of an objcet, REF's (short for "refereces") "Refer" to a given instance of a SIMPL objcet. By keeping track of REF's and ID's we are able to handle cycles and other scenarios; parsing these data gtpes is also straightforward. 
+
+As mentioned earlier, De/Serialization is driven by descriptions. These descriptions are stored within a datastructure called a "SIMPL Types Scope". The Types Scope contains all relevant type data needed for deserialization of data. 
+
+Serializatoin and Deserialization defer simpl-specific logic to substructures wihch produces "Interpretations"- Effectively an internal represntaqtion for serialization and deserializatoin. De/serializers should convert a set of interpretations to their requisite formats, and then convert the formats into a set of interpreations. Those interpretations in turn get handled by a single compontent, wihch creates instances of the deserialized objects.
+
+This architecture seems different from most de/serialization libraries; this is intentionally so. The use of the internal represntation prevents reduplication of common logic, makes serialization much simpler, and will also allow for greater portabliity of different formats across multiple language implementations of simpl.
+
+
+  
