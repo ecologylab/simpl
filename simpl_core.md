@@ -1,5 +1,3 @@
-
-
 Simpl: An Overview
 =====
 S.IM.PL stands for "Support for Information Mapping between Programming Languages." It is an architecture and a set of common standards designed to improve and radically simplifiy the development of applications which may transfer data across many different programming languages. 
@@ -48,4 +46,15 @@ Serializatoin and Deserialization defer simpl-specific logic to substructures wi
 This architecture seems different from most de/serialization libraries; this is intentionally so. The use of the internal represntation prevents reduplication of common logic, makes serialization much simpler, and will also allow for greater portabliity of different formats across multiple language implementations of simpl.
 
 
+Translation
+====
+
+Translation is the process by which a described type is translated into source code in a given language. For example, a type may be created in Java, and then translated into an equivilant data type in another simpl language. In this way, it's possible to move representations from one S.IM.P language to anther in a pain-free way. These representatoins can then be compiled and used in other lanuages for developent! 
+
+Translation heavily leverages the description layer to accomplish its work. By leveraging descripiton, it keeps continuity with the underlying type system and allows for ease of transitioning. 
+
+
+Invocation
+====
+Invocation is currently not yet implemented in S.IM.PL. In the future, you will be able to leverage the same description-level understandings of data types as a method of remote procedure calls; Consider it to be an equivilant of JSON-RPC, but done at a cross-language type system level that is more seamlessly integrated across multiple implementations of S.IM.PL and thus across multiple languages .
   
