@@ -1,3 +1,3 @@
 simpl
 =====
-##[Continue to the wiki](wiki)
+##[Continue to the wiki](/ecologylab/simpl/wiki)
