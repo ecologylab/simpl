@@ -1,3 +1,3 @@
 simpl
 =====
-###(wiki)[Continue to the wiki]
+##[Continue to the wiki](wiki)
